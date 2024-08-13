@@ -1,0 +1,21 @@
+{
+  "label": "Português",
+  "main": {
+    "contextMenu": {
+      "showHome": "Mostrar Tela Inicial",
+      "setAppZoom": "Configure Zoom",
+      "quit": "Sair da aplicação",
+      "nowValue": "Agora",
+      "resetWindowPosition": "Restaurar posição da janela"
+    }
+  },
+  "error": {
+    "404": "Página não encontrada"
+  },
+  "renderer": {
+    "updateLoading": {
+      "loading": "Baixando as atualizações...",
+      "autoRestart": "A aplicação será reiniciada."
+    }
+  }
+}

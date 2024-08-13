@@ -1,0 +1,21 @@
+{
+  "label": "English",
+  "main": {
+    "contextMenu": {
+      "showHome": "Show Home Screen",
+      "setAppZoom": "Set App Display Scale",
+      "quit": "Quit App",
+      "nowValue": "Now",
+      "resetWindowPosition": "Reset Window Position"
+    }
+  },
+  "error": {
+    "404": "Page not found"
+  },
+  "renderer": {
+    "updateLoading": {
+      "loading": "Downloading Update...",
+      "autoRestart": "The app will restart shortly."
+    }
+  }
+}
