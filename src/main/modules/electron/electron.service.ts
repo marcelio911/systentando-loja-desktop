@@ -274,7 +274,6 @@ export const generatedIpcOnContext = {`
 
         icon: this.ICON,
         fullscreenable: true,
-        resizable: true,
         webPreferences: {
           preload: this.PRELOAD_PATH,
         },

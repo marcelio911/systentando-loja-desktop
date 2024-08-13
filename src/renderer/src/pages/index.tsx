@@ -31,7 +31,12 @@ function HomePage(): JSX.Element {
           <div className="w-2/3">
             {' '}
             {/* Largura 2/3 */}
-            <Carousel className="rounded-xl">
+            <Carousel
+              className="rounded-xl"
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
               <div className="relative h-full w-full">
                 <img src={samsungMemory} alt="image 1" className="h-full w-full object-cover" />
                 <div className="bg-blue-800 opacity-80 absolute inset-0 grid"></div>
@@ -41,10 +46,20 @@ function HomePage(): JSX.Element {
                       variant="h1"
                       color="white"
                       className="mb-4 text-2xl md:text-3xl lg:text-4xl"
+                      placeholder={undefined}
+                      onPointerEnterCapture={undefined}
+                      onPointerLeaveCapture={undefined}
                     >
                       Chega de gastar tempo com operação ineficiente!
                     </Typography>
-                    <Typography variant="lead" color="white" className="mb-12 opacity-80">
+                    <Typography
+                      variant="lead"
+                      color="white"
+                      className="mb-12 opacity-80"
+                      placeholder={undefined}
+                      onPointerEnterCapture={undefined}
+                      onPointerLeaveCapture={undefined}
+                    >
                       It is not so much for its beauty that the forest makes a claim upon men&apos;s
                       hearts, as for that subtle something, that quality of air that emanation from
                       old trees, that so wonderfully changes and renews a weary spirit.
@@ -61,10 +76,20 @@ function HomePage(): JSX.Element {
                       variant="h1"
                       color="white"
                       className="mb-4 text-2xl md:text-3xl lg:text-4xl"
+                      placeholder={undefined}
+                      onPointerEnterCapture={undefined}
+                      onPointerLeaveCapture={undefined}
                     >
                       Os dados que você precisa já estão aqui no Systentando sua loja.
                     </Typography>
-                    <Typography variant="lead" color="white" className="mb-12 opacity-80">
+                    <Typography
+                      variant="lead"
+                      color="white"
+                      className="mb-12 opacity-80"
+                      placeholder={undefined}
+                      onPointerEnterCapture={undefined}
+                      onPointerLeaveCapture={undefined}
+                    >
                       It is not so much for its beauty that the forest makes a claim upon men&apos;s
                       hearts, as for that subtle something, that quality of air that emanation from
                       old trees, that so wonderfully changes and renews a weary spirit.

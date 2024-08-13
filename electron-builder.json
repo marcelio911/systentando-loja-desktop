@@ -1,8 +1,8 @@
 {
-  "appId": "com.2skydev.example",
-  "productName": "electron-nestjs-react-vite-template",
+  "appId": "com.systentando.loja-ui",
+  "productName": "systentando-loja-ui",
   "protocols": {
-    "name": "example",
+    "name": "sys",
     "schemes": [
       "example"
     ]
@@ -10,8 +10,8 @@
   "publish": [
     {
       "provider": "github",
-      "owner": "2skydev",
-      "repo": "electron-nestjs-react-vite-template"
+      "owner": "marcelio911",
+      "repo": "systentando-loja-ui"
     }
   ],
   "asar": true,
@@ -21,12 +21,45 @@
   },
   "mac": {
     "target": "dmg",
-    "icon": "resources/icons/logo@512.png"
+    "icon": "resources/icons/logo@512.png",
+    "entitlementsInherit": "build/entitlements.mac.plist",
+    "extendInfo": [
+      {
+        "NSCameraUsageDescription": "Application requests access to the device's camera."
+      },
+      {
+        "NSMicrophoneUsageDescription": "Application requests access to the device's microphone."
+      },
+      {
+        "NSDocumentsFolderUsageDescription": "Application requests access to the user's Documents folder."
+      },
+      {
+        "NSDownloadsFolderUsageDescription": "Application requests access to the user's Downloads folder."
+      }
+    ]
   },
+  "dmg": {
+    "artifactName": "${name}-${version}.${ext}"
+  },
+  "linux": {
+    "target": [
+      "AppImage",
+      "snap",
+      "deb"
+    ],
+    "icon": "resources/icons/logo@256.ico",
+    "maintainer": "systentando",
+    "category": "Utility"
+  },
+  "appImage": {
+    "artifactName": "${name}-${version}.${ext}"
+  },
+  "compression": "normal",
   "nsis": {
     "oneClick": true,
     "artifactName": "${productName}-${version}.${ext}",
-    "uninstallDisplayName": "${productName}"
+    "uninstallDisplayName": "${productName}",
+    "createDesktopShortcut": "always"
   },
   "extraResources": [
     "./resources/**"

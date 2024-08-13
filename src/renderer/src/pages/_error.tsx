@@ -11,7 +11,7 @@ const RootErrorFallback = () => {
     if (error.status === 404) {
       return (
         <div>
-          <h1> {i18next.t('main.error.404')}</h1>
+          <h1> {i18next.t('error.404')}</h1>
           <p>Sorry, we couldn&apos;t find the page you were looking for</p>
         </div>
       )

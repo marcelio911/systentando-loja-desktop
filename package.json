@@ -8,9 +8,12 @@
     "email": "marcelio911@gmail.com",
     "name": "marcelio911"
   },
+  "build": {
+    "appId": "com.systentando.loja-ui"
+  },
   "scripts": {
     "dev": "electron-vite dev -w",
-    "build": "pnpm typecheck && electron-vite build && electron-builder",
+    "build": "pnpm typecheck && electron-vite build",
     "deploy": "pnpm build && electron-builder",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",

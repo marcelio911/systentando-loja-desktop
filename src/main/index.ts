@@ -26,15 +26,15 @@ const bootstrap = async () => {
 
     if (error?.message === 'unable to verify the first certificate') {
       dialog.showErrorBox(
-        '앱 실행 오류',
-        `인증서 오류로 인해 앱을 실행할 수 없습니다.\n네트워크를 변경하는 앱이 실행 중이라면 이 앱은 제외해주세요. (예시: 유니콘 Pro)\n자세한 로그는 ${
+        'Erro ao iniciar o aplicativo',
+        `O aplicativo não pode ser executado devido a um erro de certificado.\nSe um aplicativo que altera a rede estiver em execução, exclua-o. (Exemplo: Unicorn Pro)\nPara registros detalhados, ${
           log.transports.file.getFile().path
         }`,
       )
     } else {
       dialog.showErrorBox(
-        '앱 실행 오류',
-        `${error?.message}\n자세한 로그는 ${log.transports.file.getFile().path}`,
+        'Erro ao iniciar o aplicativo',
+        `${error?.message}\nO registro detalhado é ${log.transports.file.getFile().path}`,
       )
     }
 

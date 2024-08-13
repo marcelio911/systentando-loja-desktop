@@ -43,7 +43,7 @@ const UpdateLoadingPage = () => {
   return (
     <div className="update-loading-window">
       <img src={logoImage} alt="logo" />
-      <div className="text">{text}</div>
+      <div className="text">{String(text)}</div>
       <progress value={20} max={100} />
     </div>
   )
