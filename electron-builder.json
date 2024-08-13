@@ -2,7 +2,7 @@
   "appId": "com.systentando.loja-ui",
   "productName": "systentando-loja-ui",
   "protocols": {
-    "name": "sys",
+    "name": "https",
     "schemes": [
       "example"
     ]

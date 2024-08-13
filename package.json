@@ -1,6 +1,6 @@
 {
   "name": "systentando-loja-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gestão de Loja integrado ",
   "main": "./out/main/index.js",
   "license": "MIT",
@@ -13,8 +13,8 @@
   },
   "scripts": {
     "dev": "electron-vite dev -w",
-    "build": "pnpm typecheck && electron-vite build",
-    "deploy": "pnpm build && electron-builder",
+    "build": "export NODE_ENV=development && export ENVFILE=.env && pnpm typecheck && electron-vite build",
+    "deploy": "pnpm build && electron-builder ",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",

@@ -47,7 +47,7 @@ export class ElectronService implements OnModuleInit, OnApplicationBootstrap {
   public readonly PROD_LOAD_FILE_PATH = join(this.APP_PATH, 'out/renderer/index.html')
   public readonly PRELOAD_PATH = join(this.APP_PATH, 'out/preload/index.js')
   public readonly RESOURCES_PATH = app.isPackaged
-    ? join(process.resourcesPath, 'resources')
+    ? join(process.resourcesPath, '')
     : join(this.APP_PATH, 'resources')
   public readonly ICON = nativeImage.createFromPath(
     `${this.RESOURCES_PATH}/icons/${this.IS_MAC ? 'logo@512.png' : 'logo@256.ico'}`,
@@ -395,7 +395,7 @@ export const generatedIpcOnContext = {`
     this.configService.onChange('general.autoLaunch', async value => {
       const isEnabled = await this.autoLauncher.isEnabled()
 
-      // 아래 enable/disable 실행 시 오류가 발생 할 수 있기 때문에 두 값이 같을 경우 아무것도 하지 않는다.
+      // Pode ocorrer um erro ao executar ativar/desativar abaixo, portanto, se os dois valores forem iguais, nada será feito.
       if (isEnabled === value || (!isEnabled && !value)) return
 
       this.autoLauncher[value ? 'enable' : 'disable']()
@@ -492,44 +492,50 @@ export const generatedIpcOnContext = {`
     }
   }
 
+  @ExecuteLog()
   private async initI18Next() {
-    const fileNames = await readdir(`${this.RESOURCES_PATH}/locales`)
+    try {
+      const fileNames = await readdir(`${join(this.RESOURCES_PATH, '..')}/locales`)
 
-    const files = await Promise.all(
-      fileNames.map(fileName =>
-        readFile(`${this.RESOURCES_PATH}/locales/${fileName}`, { encoding: 'utf-8' }),
-      ),
-    )
+      const files = await Promise.all(
+        fileNames.map(fileName => {
+          console.info('initI18Next', fileName)
+          return readFile(`${this.RESOURCES_PATH}/locales/${fileName}`, { encoding: 'utf-8' })
+        }),
+      )
 
-    const resources: Record<string, any> = files.reduce((resources, file, index) => {
-      const json = jsoncParse(file)
-      const locale = fileNames[index].replace('.json', '')
+      const resources: Record<string, any> = files.reduce((resources, file, index) => {
+        const json = jsoncParse(file)
+        const locale = fileNames[index].replace('.json', '')
 
-      resources[locale] = {
-        translation: json,
-      }
+        resources[locale] = {
+          translation: json,
+        }
 
-      this.languageOptions.push({
-        label: json?.label,
-        value: locale,
+        this.languageOptions.push({
+          label: json?.label,
+          value: locale,
+        })
+
+        return resources
+      }, {})
+
+      const systemLocale = app.getSystemLocale().replace('-', '_')
+      const configLocale = this.configService.get('general.language')
+
+      const inputLocale = configLocale ?? systemLocale
+      const outputLocale = resources[inputLocale] ? inputLocale : 'en_US'
+
+      await i18next.init({
+        lng: outputLocale,
+        resources,
       })
 
-      return resources
-    }, {})
-
-    const systemLocale = app.getSystemLocale().replace('-', '_')
-    const configLocale = this.configService.get('general.language')
-
-    const inputLocale = configLocale ?? systemLocale
-    const outputLocale = resources[inputLocale] ? inputLocale : 'en_US'
-
-    await i18next.init({
-      lng: outputLocale,
-      resources,
-    })
-
-    if (!configLocale) {
-      this.configService.set('general.language', outputLocale)
+      if (!configLocale) {
+        this.configService.set('general.language', outputLocale)
+      }
+    } catch (error) {
+      console.error('initI18Next', error)
     }
   }
 }
