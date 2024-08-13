@@ -65,7 +65,7 @@
     "axios": "^1.6.8",
     "base64-js": "^1.5.1",
     "classnames": "^2.5.1",
-    "commitizen": "4.1.2",
+    "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
