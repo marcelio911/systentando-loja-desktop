@@ -21,7 +21,7 @@ jobs:
         with:
           config-name: release-drafter-config.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Sleep 5 seconds # sleep para resolver o problema em que o release-draft executa as etapas abaixo antes de criar o lançamento
         run: sleep 5
@@ -31,7 +31,7 @@ jobs:
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           repository: ${{ github.repository }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@v4
