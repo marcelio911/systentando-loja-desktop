@@ -1,11 +1,15 @@
 import { useState } from 'react'
 
 import { Header } from '@renderer/components/common'
+import ActionsPanel from '@renderer/components/common/ActionsPanel'
 import DataGrid from '@renderer/components/common/DataGrid'
 import FilterPanel from '@renderer/components/common/FilterPanel'
+import FormFilters from '@renderer/components/common/FormFilters'
 import Menu from '@renderer/components/common/Menu'
+import Container from '@renderer/components/principals/Container'
 import MainContent from '@renderer/components/principals/MainContent'
 import RootTemplate from '@renderer/components/principals/RootTemplate'
+import useToggle from '@renderer/hooks/useToggle'
 
 import mockedOders from './__mocks__/orders.json'
 
@@ -21,6 +25,7 @@ interface Order {
 
 function PedidosPage(): JSX.Element {
   const [orders] = useState<Order[]>(mockedOders)
+  const showFilterPanel = useToggle(false)
   const [filteredOrders, setFilteredOrders] = useState<Order[]>(orders)
 
   const handleFilterChange = (selectedFilters: string[]) => {
@@ -43,12 +48,15 @@ function PedidosPage(): JSX.Element {
       <RootTemplate>
         <Header title="Pedidos" />
         <MainContent>
-          <div className="container mx-auto p-4">
-            <FilterPanel
-              placeholder="Item ou cliente"
-              onSearch={handleSearch}
-              onFilterChange={handleFilterChange}
-            />
+          <Container>
+            <ActionsPanel>
+              <FilterPanel
+                placeholder="Item ou cliente"
+                onSearch={handleSearch}
+                onFilterChange={handleFilterChange}
+                showFilterPanel={showFilterPanel}
+              />
+            </ActionsPanel>
 
             <DataGrid
               columns={[
@@ -63,7 +71,12 @@ function PedidosPage(): JSX.Element {
               data={filteredOrders}
               rowsPerPage={7}
             />
-          </div>
+          </Container>
+          {showFilterPanel.state && (
+            <FormFilters title="Formulário de filtros">
+              Implementar que vai ser dinamico {'{...}'}
+            </FormFilters>
+          )}
         </MainContent>
       </RootTemplate>
     </div>

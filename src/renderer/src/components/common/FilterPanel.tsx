@@ -5,6 +5,8 @@ interface FilterPanelProps {
   onSearch: (searchTerm: string) => void
   filterOptions?: { label: string; value: string }[]
   onFilterChange: (selectedFilters: string[]) => void
+  showFilterPanel: { state: boolean; toggle: () => void }
+  children?: React.ReactNode
 }
 
 const FilterPanel: React.FC<FilterPanelProps> = ({
@@ -18,6 +20,8 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
   ],
   onSearch,
   onFilterChange,
+  showFilterPanel,
+  children,
 }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([])
 
@@ -38,7 +42,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
   }
 
   return (
-    <div className="flex items-center justify-between p-4 bg-gray-200 rounded-lg">
+    <>
       {/* Campo de busca */}
       <div className="flex-grow">
         <div className="relative">
@@ -54,28 +58,35 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
       {/* Botões de ação */}
       <div className="flex items-center ml-4 space-x-2">
         <button
+          onClick={() => showFilterPanel.toggle()}
+          className="bg-gray-200 boder-solid-1 border-gray-300 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
+        >
+          (icon) Filtros
+        </button>
+        <button
           onClick={onFilterStatus}
           className="bg-gray-200 boder-solid-1 border-gray-300 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
         >
-          Todos status ^
+          Todos status (^)
         </button>
+        {filterOptions.map(option => (
+          <div key={option.value} className="flex items-center">
+            <input
+              id={option.value}
+              type="checkbox"
+              value={option.value}
+              checked={selectedFilters.includes(option.value)}
+              onChange={() => handleFilterChange(option.value)}
+              className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+            />
+            <label htmlFor={option.value} className="ml-3 block text-sm font-medium text-gray-700">
+              {option.label}
+            </label>
+          </div>
+        ))}
+        {children && children}
       </div>
-      {filterOptions.map(option => (
-        <div key={option.value} className="flex items-center">
-          <input
-            id={option.value}
-            type="checkbox"
-            value={option.value}
-            checked={selectedFilters.includes(option.value)}
-            onChange={() => handleFilterChange(option.value)}
-            className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-          />
-          <label htmlFor={option.value} className="ml-3 block text-sm font-medium text-gray-700">
-            {option.label}
-          </label>
-        </div>
-      ))}
-    </div>
+    </>
   )
 }
 

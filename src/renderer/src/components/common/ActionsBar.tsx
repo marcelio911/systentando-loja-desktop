@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ActionsPanel from '@renderer/components/common/ActionsPanel'
+
 interface ActionBarProps {
   onSearch: (searchTerm: string) => void
   onCategoryFilter: () => void
@@ -12,7 +14,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ onSearch, onCategoryFilter, onLay
   }
 
   return (
-    <div className="flex items-center justify-between p-4 bg-gray-200 rounded-lg">
+    <ActionsPanel>
       {/* Campo de busca */}
       <div className="flex-grow">
         <div className="relative">
@@ -78,7 +80,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ onSearch, onCategoryFilter, onLay
           </svg>
         </button>
       </div>
-    </div>
+    </ActionsPanel>
   )
 }
 
