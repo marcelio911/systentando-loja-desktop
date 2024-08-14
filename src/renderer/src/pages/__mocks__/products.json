@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Smartphone XYZ",
+    "category": "Eletrônicos",
+    "stock": 50,
+    "price": 1299.99,
+    "status": true,
+    "emphasis": true,
+    "online": true
+  },
+  {
+    "id": 2,
+    "name": "Notebook ABC",
+    "category": "Informática",
+    "stock": 20,
+    "price": 2499.00,
+    "status": true,
+    "emphasis": false,
+    "online": true
+  },
+  {
+    "id": 3,
+    "name": "Camiseta Polo",
+    "category": "Moda",
+    "stock": 100,
+    "price": 59.90,
+    "status": true,
+    "emphasis": false,
+    "online": false
+  },
+  {
+    "id": 4,
+    "name": "Tênis Esportivo",
+    "category": "Calçados",
+    "stock": 30,
+    "price": 199.90,
+    "status": false,
+    "emphasis": false,
+    "online": true
+  },
+  {
+    "id": 5,
+    "name": "Livro Aventura",
+    "category": "Livros",
+    "stock": 80,
+    "price": 39.90,
+    "status": true,
+    "emphasis": true,
+    "online": true
+  }
+]

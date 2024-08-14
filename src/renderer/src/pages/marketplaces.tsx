@@ -11,7 +11,7 @@ function SalesPage(): JSX.Element {
     <div className="flex w-full">
       <Menu />
       <RootTemplate>
-        <Header title="Vendas" />
+        <Header title="Marketplaces" />
         <MainContent>
           <ProductList />
           <div className="md:w-1/3 flex  h-full flex-col">

@@ -308,9 +308,7 @@ export const generatedIpcOnContext = {`
         })
       } else {
         await this.window.loadURL(this.DEV_URL + '#')
-        if (import.meta.env.DEV) {
-          this.window.webContents.openDevTools()
-        }
+        this.window.webContents.openDevTools()
       }
     })
   }
@@ -356,8 +354,8 @@ export const generatedIpcOnContext = {`
   private applyZoom(zoom: number) {
     if (!this.window) return
 
-    // setMinimumSize를 사용하는 이유는 아래 setSize만 사용했을 때 의도된 설계인지 모르겠지만 최소 크기가 자동으로 변경되어 크기를 줄일 수 없다.
-    // 그래서 setMinimumSize를 사용하여 직접 최소 크기를 변경 후 setSize를 사용하여 크기를 변경한다.
+    // Não sei se o motivo para usar setMinimumSize é intencional quando apenas setSize abaixo é usado, mas o tamanho mínimo é alterado automaticamente e o tamanho não pode ser reduzido.
+    // Então, altere o tamanho mínimo diretamente usando setMinimumSize e depois altere o tamanho usando setSize.
     this.window.setMinimumSize(this.APP_WIDTH * zoom, this.APP_HEIGHT * zoom)
     this.window.setSize(this.APP_WIDTH * zoom, this.APP_HEIGHT * zoom, true)
     this.window.webContents.setZoomFactor(zoom)
@@ -464,8 +462,9 @@ export const generatedIpcOnContext = {`
           ...this.ZOOM_PERCENT_ARRAY.map(
             percent =>
               ({
-                label: `${percent}%${percent === this.zoom * 100 ? ` (${i18next.t('main.contextMenu.nowValue')})` : ''
-                  }`,
+                label: `${percent}%${
+                  percent === this.zoom * 100 ? ` (${i18next.t('main.contextMenu.nowValue')})` : ''
+                }`,
                 type: 'normal',
                 click: () => this.setZoom(percent / 100),
               }) as MenuItemConstructorOptions,
@@ -525,7 +524,7 @@ export const generatedIpcOnContext = {`
 
       const inputLocale = configLocale ?? systemLocale
       const outputLocale = resources[inputLocale] ? inputLocale : 'en_US'
-
+      console.info('initI18Next::resources => ', outputLocale, resources)
       await i18next.init({
         lng: outputLocale,
         resources,

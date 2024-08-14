@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Header: React.FC = () => {
+interface Props {
+  title: string
+}
+
+const Header: React.FC<Props> = props => {
+  const { title } = props
   const hiddenSidebar = () => {
     const sidebar = document.getElementById('sidebar')
     const openSidebarBtn = document.getElementById('openSidebarBtn')
@@ -30,7 +35,7 @@ const Header: React.FC = () => {
           ></path>
         </svg>
       </button>
-      <h1 className="text-2xl justify-start font-bold text-gray-200">Vender</h1>
+      <h1 className="text-2xl justify-start font-bold text-gray-200">{title}</h1>
       <div className="grid grid-flow-col justify-end space-x-4">
         <div className="flex flex-row ">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">

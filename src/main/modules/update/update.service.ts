@@ -39,6 +39,7 @@ export class UpdateService implements OnModuleInit {
     private readonly moduleRef: ModuleRef,
   ) {
     autoUpdater.logger = log
+    autoUpdater.allowDowngrade = true
     autoUpdater.autoInstallOnAppQuit = true
     autoUpdater.disableWebInstaller = true
 
@@ -125,7 +126,7 @@ export class UpdateService implements OnModuleInit {
         data,
         time: new Date().getTime(),
       }
-
+      // console.log('handleUpdateEvent:: ', event, ', status => ', this.status)
       this.controller.onChangeUpdateStatus(this.status)
     }
   }

@@ -2,9 +2,9 @@
   "appId": "com.systentando.loja-ui",
   "productName": "systentando-loja-ui",
   "protocols": {
-    "name": "https",
+    "name": "loja-ui",
     "schemes": [
-      "example"
+      "loja-ui"
     ]
   },
   "publish": [
@@ -21,40 +21,8 @@
   },
   "mac": {
     "target": "dmg",
-    "icon": "resources/icons/logo@512.png",
-    "entitlementsInherit": "build/entitlements.mac.plist",
-    "extendInfo": [
-      {
-        "NSCameraUsageDescription": "Application requests access to the device's camera."
-      },
-      {
-        "NSMicrophoneUsageDescription": "Application requests access to the device's microphone."
-      },
-      {
-        "NSDocumentsFolderUsageDescription": "Application requests access to the user's Documents folder."
-      },
-      {
-        "NSDownloadsFolderUsageDescription": "Application requests access to the user's Downloads folder."
-      }
-    ]
+    "icon": "resources/icons/logo@512.png"
   },
-  "dmg": {
-    "artifactName": "${name}-${version}.${ext}"
-  },
-  "linux": {
-    "target": [
-      "AppImage",
-      "snap",
-      "deb"
-    ],
-    "icon": "resources/icons/logo@256.ico",
-    "maintainer": "systentando",
-    "category": "Utility"
-  },
-  "appImage": {
-    "artifactName": "${name}-${version}.${ext}"
-  },
-  "compression": "normal",
   "nsis": {
     "oneClick": true,
     "artifactName": "${productName}-${version}.${ext}",

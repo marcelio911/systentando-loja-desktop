@@ -7,12 +7,12 @@ const Menu: React.FC = () => {
   const menuItems = [
     { label: 'Vender', path: '/vender', icon: '...' }, // Substitua '...' pelo ícone desejado
     { label: 'Pedidos', path: '/pedidos', icon: '...' },
-    { label: 'Produtos', path: '/produtos', icon: '...' },
+    { label: 'Produtos PDV', path: '/produtos', icon: '...' },
     { label: 'Catálogo Online', path: '/catalogo-online', icon: '...' },
-    { label: 'Clientes', path: '/clientes', icon: '...' },
-    { label: 'Histórico', path: '/historico', icon: '...' },
-    { label: 'Finanças', path: '/financas', icon: '...' },
+    { label: 'Nossos Clientes', path: '/clientes', icon: '...' },
+    { label: 'Histórico / Movimentação', path: '/historico', icon: '...' },
     { label: 'Estatísticas', path: '/estatisticas', icon: '...' },
+    { label: 'Finanças', path: '/financas', icon: '...' },
     { label: 'Usuários', path: '/usuarios', icon: '...' },
     { label: 'Configurações', path: '/configuracoes', icon: '...' },
     { label: 'Marketplaces', path: '/marketplaces', icon: '...' },

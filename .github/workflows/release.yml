@@ -14,7 +14,7 @@ jobs:
   release_draft:
     permissions:
       contents: write
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Release drafter
         uses: release-drafter/release-drafter@v6
@@ -44,7 +44,7 @@ jobs:
           version=${version#v}
           echo "Latest release: $version"
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@github.com"
           yarn version --new-version $version --no-git-tag-version
           if [ ! -z "$(git diff --exit-code)" ]; then  # Add brackets and check for non-empty diff
             git add package.json

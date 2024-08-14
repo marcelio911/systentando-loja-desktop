@@ -36,10 +36,19 @@ export class ElectronController {
 
   @IPCHandle()
   public getCurrentI18nextResource() {
-    return {
-      language: i18next.language,
-      resource: i18next.getResourceBundle(i18next.language, 'translation'),
-      ns: 'translation',
+    try {
+      return {
+        language: i18next.language,
+        resource: i18next.getResourceBundle(i18next.language, 'translation'),
+        ns: 'translation',
+      }
+    } catch (error) {
+      console.error('getCurrentI18nextResource', error)
+      return {
+        language: i18next.language,
+        resource: {},
+        ns: 'translation',
+      }
     }
   }
 

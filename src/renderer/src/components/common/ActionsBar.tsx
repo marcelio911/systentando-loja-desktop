@@ -19,7 +19,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ onSearch, onCategoryFilter, onLay
           <input
             type="text"
             placeholder="Nome ou código"
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full pl-10 pr-4 py-2 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
             onChange={handleSearch}
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -45,7 +45,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ onSearch, onCategoryFilter, onLay
       <div className="flex items-center ml-4 space-x-2">
         <button
           onClick={onCategoryFilter}
-          className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
+          className="bg-gray-200 boder-solid-1 border-gray-300 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
         >
           Categorias ^
         </button>

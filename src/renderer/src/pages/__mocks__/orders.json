@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "date": "2023-11-20",
+    "seller": "Vendedor A",
+    "itens": "Produto X, Produto Y",
+    "customer": "Cliente 1",
+    "status": "Pendente",
+    "value": 150.50
+  },
+  {
+    "id": 2,
+    "date": "2023-12-05",
+    "seller": "Vendedor B",
+    "itens": "Produto Z",
+    "customer": "Cliente 2",
+    "status": "Confirmado",
+    "value": 80.00
+  },
+  {
+    "id": 3,
+    "date": "2024-01-10",
+    "seller": "Vendedor A",
+    "itens": "Produto X, Produto W",
+    "customer": "Cliente 3",
+    "status": "Enviado",
+    "value": 200.00
+  },
+  {
+    "id": 4,
+    "date": "2024-02-18",
+    "seller": "Vendedor C",
+    "itens": "Produto Y, Produto Z",
+    "customer": "Cliente 1",
+    "status": "Entregue",
+    "value": 120.25
+  },
+  {
+    "id": 5,
+    "date": "2024-03-25",
+    "seller": "Vendedor B",
+    "itens": "Produto W",
+    "customer": "Cliente 4",
+    "status": "Cancelado",
+    "value": 55.90
+  },
+  {
+    "id": 6,
+    "date": "2023-11-20",
+    "seller": "Vendedor A",
+    "itens": "Produto X, Produto Y",
+    "customer": "Cliente 1",
+    "status": "Pendente",
+    "value": 150.50
+  },
+  {
+    "id": 7,
+    "date": "2023-12-05",
+    "seller": "Vendedor B",
+    "itens": "Produto Z",
+    "customer": "Cliente 2",
+    "status": "Confirmado",
+    "value": 80.00
+  },
+  {
+    "id": 8,
+    "date": "2024-01-10",
+    "seller": "Vendedor A",
+    "itens": "Produto X, Produto W",
+    "customer": "Cliente 3",
+    "status": "Enviado",
+    "value": 200.00
+  },
+  {
+    "id": 9,
+    "date": "2024-02-18",
+    "seller": "Vendedor C",
+    "itens": "Produto Y, Produto Z",
+    "customer": "Cliente 1",
+    "status": "Entregue",
+    "value": 120.25
+  },
+  {
+    "id": 10,
+    "date": "2024-03-25",
+    "seller": "Vendedor B",
+    "itens": "Produto W",
+    "customer": "Cliente 4",
+    "status": "Cancelado",
+    "value": 55.90
+  }
+]
